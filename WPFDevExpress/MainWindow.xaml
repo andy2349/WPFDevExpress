@@ -1,0 +1,50 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dxn="http://schemas.devexpress.com/winfx/2008/xaml/navbar" x:Class="WPFDevExpress.MainWindow"
+    xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
+    Title="Dev Express App" Height="705" Width="1016.667">
+    <dxb:BarManager CreateStandardLayout="False">
+        <DockPanel>
+            <dxr:RibbonControl DockPanel.Dock="Top" ToolbarShowMode="Hide" ShowApplicationButton="False" RibbonTitleBarVisibility="Auto">
+                <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
+                    <dxr:RibbonPage Caption="Home">
+                        <dxr:RibbonPageGroup Caption="Tools">
+                            <dxb:BarButtonItem Content="Refresh" Glyph="D:\dxIconsFree\Data Navigation\refresh-16x16.png" GlyphSize="Large" LargeGlyph="D:\dxIconsFree\Data Navigation\refresh-32x32.png" ItemClick="Refresh"/>
+                        </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="Filters">
+                            <dxb:BarEditItem Content="Birth Date:" EditWidth="100" x:Name="DtpBirth">
+                                <dxb:BarEditItem.EditSettings>
+                                    <dxe:DateEditSettings/>
+                                </dxb:BarEditItem.EditSettings>
+                            </dxb:BarEditItem>
+                            <dxb:BarEditItem Content="Hire Date:" EditWidth="100" x:Name="DtpHire">
+                                <dxb:BarEditItem.EditSettings>
+                                    <dxe:DateEditSettings/>
+                                </dxb:BarEditItem.EditSettings>
+                            </dxb:BarEditItem>
+                        </dxr:RibbonPageGroup>
+                    </dxr:RibbonPage>
+                </dxr:RibbonDefaultPageCategory>
+            </dxr:RibbonControl>
+            <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
+            <Grid>
+                <dxg:GridControl x:Name="GridControl" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" ShowBorder="False" Margin="100,0,0,0" SelectionMode="Row">
+                    <dxg:GridControl.TotalSummary>
+                        <dxg:GridSummaryItem SummaryType = "Count" Alignment="Right" DisplayFormat="Rows:{0}"/>
+                    </dxg:GridControl.TotalSummary>
+                    <dxg:GridControl.View>
+                        <dxg:TableView ShowFixedTotalSummary="True" />
+                    </dxg:GridControl.View>
+                </dxg:GridControl>
+                <dxn:NavBarControl HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="100">
+                    <dxn:NavBarGroup x:Name="NavBarGroupTables" Header="Tables">
+                        <dxn:NavBarItem x:Name="NavBarItemCustomers" Content="Customers" IsSelected="True" Select="SelectCustomers"/>
+                        <dxn:NavBarItem x:Name="NavBarItemEmployees" Content="Employees" Select="SelectEmployees"/>
+                    </dxn:NavBarGroup>
+                </dxn:NavBarControl>
+            </Grid>
+        </DockPanel>
+    </dxb:BarManager>
+</Window>
+
