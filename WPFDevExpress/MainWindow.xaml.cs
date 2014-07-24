@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
 using System.Windows;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Markup;
-using DevExpress.Xpf.Charts;
 using DevExpress.Xpf.Grid;
 
 namespace WPFDevExpress

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Windows.Data;
-using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Xpf.Grid;
 using WPFDevExpress.Models;
 
@@ -22,7 +20,6 @@ namespace WPFDevExpress
         {
             _grid.Columns.Clear();
             var column = new GridColumn {FieldName = "Employee ID", Binding = new Binding("EmployeeID"), VisibleIndex = 0};
-            column.AllowConditionalFormattingMenu = true;
             _grid.Columns.Add(column);
             column = new GridColumn { FieldName = "Last Name", Binding = new Binding("LastName"), VisibleIndex = 1 };
             _grid.Columns.Add(column);
