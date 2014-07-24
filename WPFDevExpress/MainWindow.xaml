@@ -12,7 +12,7 @@
                         <dxr:RibbonPageGroup Caption="Tools">
                             <dxb:BarButtonItem Content="Refresh" Glyph="D:\dxIconsFree\Data Navigation\refresh-16x16.png" GlyphSize="Large" LargeGlyph="D:\dxIconsFree\Data Navigation\refresh-32x32.png" ItemClick="Refresh"/>
                         </dxr:RibbonPageGroup>
-                        <dxr:RibbonPageGroup Caption="Filters">
+                        <dxr:RibbonPageGroup x:Name="EmployeesRibonPageGroup" Caption="Filters">
                             <dxb:BarEditItem Content="Birth Date:" EditWidth="100" x:Name="DtpBirth">
                                 <dxb:BarEditItem.EditSettings>
                                     <dxe:DateEditSettings/>

@@ -26,6 +26,7 @@ namespace WPFDevExpress
             _gridData = new CustomerGridData(GridControl);
             _gridData.ConfigureGrid();
             _gridData.LoadData();
+            this.EmployeesRibonPageGroup.IsVisible = false;
         }
 
         private void SelectEmployees(object sender, EventArgs e)
@@ -33,6 +34,7 @@ namespace WPFDevExpress
             _gridData = new EmployeeGridData(GridControl);
             _gridData.ConfigureGrid();
             _gridData.LoadData((DateTime?)DtpBirth.EditValue, (DateTime?)DtpHire.EditValue);
+            this.EmployeesRibonPageGroup.IsVisible = true;
         }
 
         private void CityFormat_EditValueChanged(object sender, RoutedEventArgs e)
