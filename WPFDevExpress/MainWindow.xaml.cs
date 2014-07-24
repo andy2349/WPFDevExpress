@@ -9,7 +9,7 @@ namespace WPFDevExpress
     /// </summary>
     public partial class MainWindow : Window
     {
-        private IGridData _gridData;        
+        private IGridData _gridData;
 
         public MainWindow()
         {
@@ -38,10 +38,10 @@ namespace WPFDevExpress
         private void CityFormat_EditValueChanged(object sender, RoutedEventArgs e)
         {
             this.TableView.FormatConditions.Clear();
-            if ((string) CityFormat.EditValue == null) return;
+            if ((string) TxtCity.EditValue == null) return;
             var format = new FormatCondition
             {
-                Expression = "Contains([City], '" + CityFormat.EditValue + "')",
+                Expression = "Contains([City], '" + TxtCity.EditValue + "')",
                 FieldName = "City",
                 PredefinedFormatName = "GreenFillWithDarkGreenText"
             };

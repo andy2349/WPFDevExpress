@@ -25,7 +25,7 @@
                             </dxb:BarEditItem>
                         </dxr:RibbonPageGroup>
                         <dxr:RibbonPageGroup Caption="Format">
-                            <dxb:BarEditItem Content="City:" EditWidth="80" x:Name="CityFormat" EditValueChanged="CityFormat_EditValueChanged">
+                            <dxb:BarEditItem Content="City:" EditWidth="80" x:Name="TxtCity" EditValueChanged="CityFormat_EditValueChanged">
                                 <dxb:BarEditItem.EditSettings>
                                     <dxe:TextEditSettings/>
                                 </dxb:BarEditItem.EditSettings>
