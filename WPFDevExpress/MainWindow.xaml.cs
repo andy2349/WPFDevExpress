@@ -1,22 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
+using System.Globalization;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using DevExpress.Data;
-using DevExpress.Xpf.Bars;
-using DevExpress.Xpf.Editors.Helpers;
+using System.Windows.Markup;
+using DevExpress.Xpf.Charts;
 using DevExpress.Xpf.Grid;
-using WPFDevExpress.Models;
 
 namespace WPFDevExpress
 {
@@ -25,9 +16,7 @@ namespace WPFDevExpress
     /// </summary>
     public partial class MainWindow : Window
     {
-        private IGridData _gridData;
-
-        
+        private IGridData _gridData;        
 
         public MainWindow()
         {
@@ -53,5 +42,17 @@ namespace WPFDevExpress
             _gridData.LoadData((DateTime?)DtpBirth.EditValue, (DateTime?)DtpHire.EditValue);
         }
 
+        private void CityFormat_EditValueChanged(object sender, RoutedEventArgs e)
+        {
+            this.TableView.FormatConditions.Clear();
+            if ((string) CityFormat.EditValue == null) return;
+            var format = new FormatCondition
+            {
+                Expression = "Contains([City], '" + CityFormat.EditValue + "')",
+                FieldName = "City",
+                PredefinedFormatName = "GreenFillWithDarkGreenText"
+            };
+            this.TableView.FormatConditions.Add(format);
+        }
     }
 }

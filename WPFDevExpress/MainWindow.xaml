@@ -3,7 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dxn="http://schemas.devexpress.com/winfx/2008/xaml/navbar" x:Class="WPFDevExpress.MainWindow"
     xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
-    Title="Dev Express App" Height="705" Width="1016.667">
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    Title="Dev Express App" Height="705" Width="1016.667" dx:ThemeManager.ThemeName="DXStyle">
     <dxb:BarManager CreateStandardLayout="False">
         <DockPanel>
             <dxr:RibbonControl DockPanel.Dock="Top" ToolbarShowMode="Hide" ShowApplicationButton="False" RibbonTitleBarVisibility="Auto">
@@ -24,17 +25,32 @@
                                 </dxb:BarEditItem.EditSettings>
                             </dxb:BarEditItem>
                         </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="Format">
+                            <dxb:BarEditItem Content="City:" EditWidth="80" x:Name="CityFormat" EditValueChanged="CityFormat_EditValueChanged">
+                                <dxb:BarEditItem.EditSettings>
+                                    <dxe:TextEditSettings/>
+                                </dxb:BarEditItem.EditSettings>
+                            </dxb:BarEditItem>
+                        </dxr:RibbonPageGroup>
                     </dxr:RibbonPage>
                 </dxr:RibbonDefaultPageCategory>
             </dxr:RibbonControl>
             <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
             <Grid>
                 <dxg:GridControl x:Name="GridControl" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" ShowBorder="False" Margin="100,0,0,0" SelectionMode="Row">
+                    <dxg:GridControl.Columns>
+                        <dxg:GridColumn FieldName="Test Field" Binding="{Binding Test}" VisibleIndex="0"></dxg:GridColumn>
+                    </dxg:GridControl.Columns>
                     <dxg:GridControl.TotalSummary>
                         <dxg:GridSummaryItem SummaryType = "Count" Alignment="Right" DisplayFormat="Rows:{0}"/>
                     </dxg:GridControl.TotalSummary>
                     <dxg:GridControl.View>
-                        <dxg:TableView ShowFixedTotalSummary="True" />
+                        <dxg:TableView x:Name="TableView" ShowFixedTotalSummary="True" AlternateRowBackground="#FFEAEAEA" AlternationCount="2">
+                            <dxg:TableView.FormatConditions>
+                                <!--<dxg:FormatCondition Expression="Contains([TitleOfCourtesy], 'M')" FieldName="Title Of Courtesy" PredefinedFormatName="GreenFillWithDarkGreenText"/>
+                                <dxg:FormatCondition Expression="[EmployeeID] &gt; '3'" FieldName="Employee ID" PredefinedFormatName="LightRedFillWithDarkRedText"/>-->
+                            </dxg:TableView.FormatConditions>
+                        </dxg:TableView>
                     </dxg:GridControl.View>
                 </dxg:GridControl>
                 <dxn:NavBarControl HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="100">
